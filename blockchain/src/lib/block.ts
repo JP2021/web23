@@ -17,7 +17,7 @@ export default class Block {
     }
 
     getHash(): string {
-        return(this.index + this.data + this.timestamp + this.previousHash).toString();
+        return sha256(this.index + this.data + this.timestamp + this.previousHash).toString();
 
     }
 

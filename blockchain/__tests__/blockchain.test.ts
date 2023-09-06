@@ -23,8 +23,14 @@ describe("Blockchain tests", () => {
 
     test('Should addBlock', () => {
         const blockchain = new Blockchain();
-        const result = blockchain.addBlock(new Block(1,blockchain.blocks[0].hash, "bloco2"));
+        const result = blockchain.addBlock(new Block(1,blockchain.blocks[0].hash, "bloco 2"));
+        console.log(result.message);
         expect(result.success).toEqual(true);
+    })
+    test('Should getblock', () => {
+        const blockchain = new Blockchain();
+        const block = blockchain.getBlock(blockchain.blocks[0].hash);
+        expect(block).toBeTruthy();
     })
 
     test('Should NOT addBlock', () => {
