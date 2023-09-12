@@ -6,10 +6,14 @@ export default class Blockchain {
   nextindex : number = 0;
 
   constructor(){
-    this.blocks = [ new Block(this.nextindex, "","genesis")];
+    this.blocks = [ new Block({
+      index: this.nextindex,
+      previousHash: "",
+      data: "genesis"
+    } as Block)];
     this.nextindex++;
+  
   }
-
   getLastBlock(): Block {
     return this.blocks[this.blocks.length -1]
   }
