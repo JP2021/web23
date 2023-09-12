@@ -1,6 +1,8 @@
-import { describe, test, expect } from '@jest/globals';
+import { describe, test, jest, expect } from '@jest/globals';
 import Blockchain from '../src/lib/blockchain';
 import Block from '../src/lib/block';
+
+jest.mock('../src/lib/block')
 
 describe("Blockchain tests", () => {
 
@@ -21,7 +23,7 @@ describe("Blockchain tests", () => {
             previousHash: blockchain.blocks[0].hash,
             data:  "bloco2"
         } as Block));
-        blockchain.blocks[1].data = " a transfere dois para b"  ;      
+        blockchain.blocks[1].index = -1  ;      
         expect(blockchain.isValid().success).toEqual(false);
     })
 
