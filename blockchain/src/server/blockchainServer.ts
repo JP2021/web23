@@ -7,7 +7,8 @@ const PORT : number = 3002;
 
 const app = express();
 
-app.use(morgan('tiny'));
+if(process.argv.includes("--run"))
+   app.use(morgan('tiny'));
 app.use(express.json());
 
 const blockchain = new Blockchain();
@@ -49,6 +50,12 @@ res.status(400).json(validation);
 
 })
 
+if(process.argv.includes("--run")){
 app.listen(PORT, () =>{
   console.log(`BlockChain is running at ${PORT}`);
 })
+}
+export {
+
+  app
+}
