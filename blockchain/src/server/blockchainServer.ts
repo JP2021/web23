@@ -43,7 +43,7 @@ const block = new Block (req.body as Block);
 const validation = blockchain.addBlock(block);
 
 if (validation.success)
-res.status(201).json(validation);
+res.status(201).json(block);
 
 else 
 res.status(400).json(validation);
